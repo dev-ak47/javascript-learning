@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const hour = 18;  // Try different values like 10, 15, 20, etc.
+    const name = "Akanksha";
+
+    if (hour >= 6 && hour <= 12) {
+      console.log(`Good Morning ${name}!`);
+    } else if (hour >= 13 && hour <= 17) {
+      console.log(`Good Afternoon ${name}!`);
+    } else if (hour >= 18 && hour <= 23) {  // Changed 24 to 23
+      console.log(`Good Night ${name}!`);
+    } else {
+      console.log(`Hello ${name}, it's late at night!`); // Handling hours from 0 to 5
+    }
+  </script>
+</body>
+</html>
