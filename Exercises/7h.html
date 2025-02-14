@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>convertLength</title>
+</head>
+<body>
+  <script>
+    function convertToKilometer(miles) {
+      return miles * 1.6;
+    }
+
+    function convertToFt(miles) {
+      return miles*5280;
+    }
+
+    function KmToFt(km){
+      return km*3281;
+    }
+
+    function convertLength(length, from, to) {
+      if (from !== 'km' && from !== 'miles' && from !== 'ft') {
+          return `Invalid unit: ${from}`;
+        } else if (to !== 'km' && to !== 'miles' && to !== 'ft') {
+          return `Invalid unit: ${to}`;
+        }
+
+      if (from === 'miles' && to === 'ft') {
+        return `${convertToFt(length)} miles`;
+      } else if (from === 'miles' && to === 'km') {
+        return `${convertToKilometer(length)} km`;
+      } else if(from === 'km' && to === 'ft'){
+        return `${KmToFt(length)} ft`;
+      }else {
+        return `Invalid unit conversion`; 
+      }
+    }
+
+    console.log(convertLength(5, 'miles', 'km'));
+    console.log(convertLength(5, 'miles', 'ft'));
+    console.log(convertLength(5, 'km', 'ft'));
+    console.log(convertLength(5,'lbs','lbs'));
+  </script>
+</body>
+</html>
