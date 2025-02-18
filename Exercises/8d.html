@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>8d.html</title>
+</head>
+<body>
+  <script>
+    // function comparePrice(){
+    //   let product1_price=29000;
+    //   let product2_price=35000
+
+    //   if (product1_price>product2_price){
+    //     console.log("The less expensive product is: ",product2_price);
+    //   }else if(product2_price>product1_price){
+    //     console.log("The less expensive product is: ",product1_price);
+    //   }
+    // }
+    // comparePrice();
+
+    function comparePrice(product1,product2){
+      if (product1.price<product2.price){
+        return product1;
+      }else {
+        return product2;
+      }
+    };
+
+      const product1 ={
+        name: 'basketball',
+        price: 2095
+      }
+      const product2 ={
+        name: 'socks',
+        price: 1090
+      }
+    console.log(comparePrice(product1,product2));
+  </script>
+</body>
+</html>
