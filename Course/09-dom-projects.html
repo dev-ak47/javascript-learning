@@ -10,6 +10,29 @@
       subscribe();
     " class="subscribe-button">Subscribe</button>
   </div>
+  <br>
+  <br>
+
+  <div class="Rock-Paper-Scissors">
+    <p>Rock-Paper-Scissors</p>
+    <a href="click.html">Click Here</a>
+  </div>
+  <br>
+  <br>
+
+  <div class="Amazon-shipping">
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+    <input type="cost" class="cost-of-order" placeholder="Cost of order" onkeydown="
+    console.log(event.key); // Tells in console what i did if i entered a number or deleted something
+    if(event.key === 'Enter'){ // When i pressed Enter then it will calculate the cost.
+      calculateCost();
+    }
+    ">
+    <button onclick="calculateCost()">Calculate</button>
+    <p class="js-result"></p>
+  </div>
 
   <script>
     function subscribe(){
@@ -20,6 +43,19 @@
       }else{
         buttonElement.innerHTML = 'Subscribe';
       }
+    }
+
+    function calculateCost(){
+      let cost = Number(document.querySelector('.cost-of-order').value); //Get input value and convert to number
+      let result =''; 
+
+      if (cost <= 40){
+        result = cost +10;
+      }else{
+        result = cost;
+      }
+      console.log(result);
+      document.querySelector('.js-result').innerHTML = `Final Result: $${result}`;
     }
   </script>
 </body>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9g.html</title>
+</head>
+<body>
+  <div class="Amazon-shipping">
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+    <input type="cost" class="cost-of-order" placeholder="Cost of order" onkeydown="
+    console.log(event.key); // Tells in console what i did if i entered a number or deleted something
+    if(event.key === 'Enter'){ // When i pressed Enter then it will calculate the cost.
+      calculateCost();
+    }
+    ">
+    <button onclick="calculateCost()">Calculate</button>
+    <p class="js-result"></p>
+  </div>
+
+  <script>
+    function calculateCost(){
+      let cost = Number(document.querySelector('.cost-of-order').value) *100; //Get input value and convert to number
+      let result =''; 
+
+      if (cost <= 4000){
+        result = cost +1000;
+      }else{
+        result = cost;
+      }
+      console.log(result);
+      document.querySelector('.js-result').innerHTML = `Final Result: $${result/100}`;
+    }
+  </script>
+</body>
+</html>
