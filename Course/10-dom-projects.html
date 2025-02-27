@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>DOM Projects</title>
+  <style>
+
+    body{
+        font-family: Arial;
+    }
+
+    .subscribe-button{
+        border: none;
+        background-color: black;
+        color: white;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-left: 14px;
+        padding-right: 14px;
+        margin-left: 10px;
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 20px;
+        font-family: sans-serif;
+        cursor: pointer;
+    }
+
+    .is-subscribed{
+        background-color: rgb(207, 207, 207);
+        color: black;
+    }
+
+    .cost-input{
+        /* padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px; */
+        margin-left: 5px;
+        font-size: 15px;
+        padding: 10px;
+    }
+    
+    .calculate-button{
+        padding: 10px 15px; 
+        /* first one is vertical-padding and second-one is horizontal. */
+        background-color: green;
+        color: white;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="Youtube">
+    <p>Youtube Subscribe Button</p>
+    <button onclick="
+      subscribe();
+    " class="subscribe-button">Subscribe</button>
+  </div>
+  <br>
+  <br>
+
+  <div class="Rock-Paper-Scissors">
+    <p>Rock-Paper-Scissors</p>
+    <a href="click.html">Click Here</a>
+  </div>
+  <br>
+  <br>
+
+  <div class="Amazon-shipping">
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+    <input type="cost" class="cost-of-order cost-input" placeholder="Cost of order" onkeydown="
+    console.log(event.key); // Tells in console what i did if i entered a number or deleted something
+    if(event.key === 'Enter'){ // When i pressed Enter then it will calculate the cost.
+      calculateCost();
+    }
+    ">
+    <button class="calculate-button" onclick="calculateCost()">Calculate</button>
+    <p class="js-result"></p>
+  </div>
+
+  <script>
+    function subscribe(){
+      const buttonElement = document.querySelector('.subscribe-button');
+
+      if (buttonElement.innerHTML === 'Subscribe'){
+        buttonElement.innerHTML = 'Subscribed';
+        buttonElement.classList.add('is-subscribed');
+      }else{
+        buttonElement.innerHTML = 'Subscribe';
+        buttonElement.classList.remove('is-subscribed');
+      }
+    }
+
+    function calculateCost(){
+      let cost = Number(document.querySelector('.cost-of-order').value); //Get input value and convert to number
+      let result =''; 
+
+      if (cost <= 40){
+        result = cost +10;
+      }else{
+        result = cost;
+      }
+      console.log(result);
+      document.querySelector('.js-result').innerHTML = `Final Result: $${result}`;
+    }
+  </script>
+</body>
+</html>
