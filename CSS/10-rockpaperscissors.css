@@ -1,0 +1,67 @@
+body{
+  background-color: black;
+}
+
+p{
+  color: white;
+}
+
+.heading{
+  font-size: 35px;
+  font-weight: bold;
+}
+
+
+.RockPaperScissors-emoji{
+height: 50px;
+}
+
+.rock-button{
+background-color: transparent;
+border-radius: 60px;
+border: 3px solid white;
+padding: 30px;
+margin-right: 10px;
+margin-bottom: 50px;
+cursor: pointer;
+}
+
+.paper-button{
+background-color: transparent;
+border-radius: 60px;
+border: 3px solid white;
+padding: 30px;
+margin-right: 10px;
+margin-bottom: 50px;
+cursor: pointer;
+}
+
+.scissors-button{
+background-color: transparent;
+border-radius: 60px;
+border: 3px solid white;
+padding: 30px;
+margin-right: 10px;
+margin-bottom: 50px;
+cursor: pointer;
+}
+
+.js-score{
+font-size: 18px;
+}
+
+.score{
+margin-top: 60px;
+}
+
+.reset-score{
+padding: 8px 15px;
+font-size: 15px;
+border: none;
+cursor: pointer;
+}
+
+.result{
+font-size: 25px;
+font-weight: bold;
+}
