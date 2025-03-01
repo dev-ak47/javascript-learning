@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10h.html</title>
+  <style>
+    .cost-input{
+        /* padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px; */
+        margin-left: 5px;
+        font-size: 15px;
+        padding: 10px;
+    }
+    
+    .calculate-button{
+        padding: 10px 15px; 
+        /* first one is vertical-padding and second-one is horizontal. */
+        background-color: green;
+        color: white;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .js-error-message{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="Amazon-shipping">
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+    <input type="cost" class="cost-of-order cost-input" placeholder="Cost of order" onkeydown="
+    console.log(event.key); // Tells in console what i did if i entered a number or deleted something
+    if(event.key === 'Enter'){ // When i pressed Enter then it will calculate the cost.
+      calculateCost();
+    }
+    ">
+    <button class="calculate-button" onclick="calculateCost()">Calculate</button>
+    <p class="js-result"></p>
+    <p class="js-error-message"></p>
+  </div>
+
+  <script>
+    function calculateCost(){
+      const inputElement = document.querySelector('.js-result');
+
+        /* 1. document.querySelector('.cost-of-order')
+              Finds the first input field with the class .cost-of-order.
+              
+           2.  .value
+              Retrieves the value entered by the user in the input field.
+
+           3. Number(...)
+              Converts the input value from a string (default for input.value) to a number.
+
+           4. let cost = ...
+          Stores the numeric value of the cost in a variable called cost. */
+
+      let cost = Number(document.querySelector('.cost-of-order').value); 
+
+      document.querySelector('.js-result').innerHTML = '';
+      document.querySelector('.js-error-message').innerHTML = '';
+
+      let result='';
+      
+      if(cost < 0){
+        document.querySelector('.js-error-message')
+        .innerHTML = 'Error: cost cannot be less than $0';
+
+      return;
+      }if(cost>0 & cost<= 40){
+        result = cost+10;
+      }else{
+        result = cost;
+      }
+      document.querySelector('.js-result').innerHTML=(`Final result: $${result}`);
+      }
+  </script>
+</body>
+</html>
